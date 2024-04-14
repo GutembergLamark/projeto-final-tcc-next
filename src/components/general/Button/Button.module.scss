@@ -1,0 +1,14 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+
+.button {
+  width: 100%;
+
+  &--default {
+    @include _1-4rem($height: clamp(1.7rem, 2cqi, 2rem), $spacing: -0.2px);
+    background-color: $primary-color;
+    color: $white-color;
+    border-radius: 1.5rem;
+    padding: clamp(1rem, 1.2cqi, 1.2rem) 0;
+  }
+}

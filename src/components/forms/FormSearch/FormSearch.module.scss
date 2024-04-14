@@ -1,0 +1,42 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.search {
+  & fieldset {
+    border: none;
+    background-color: $gray-color-100;
+    border-radius: 1.5rem;
+    padding: 1rem clamp(1rem, 1.2cqi, 1.2rem);
+    position: relative;
+    width: 2.5rem;
+    cursor: pointer;
+
+    &[data-active="active"] {
+      & input {
+        max-width: 50rem;
+        padding-left: calc(2.5rem + clamp(1rem, 1.2cqi, 1.2rem));
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    & img {
+      position: absolute;
+      top: 50%;
+      left: clamp(1rem, 1.2cqi, 1.2rem);
+      transform: translateY(-50%);
+    }
+
+    & input {
+      background: none;
+      max-width: 0;
+      padding-left: 2.5rem;
+      transition: all 0.2s ease-in-out;
+
+      &,
+      &::placeholder {
+        line-height: 2.5rem;
+      }
+    }
+  }
+}

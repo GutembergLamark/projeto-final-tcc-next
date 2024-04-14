@@ -1,0 +1,76 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.header {
+  background-color: $white-color;
+  container-type: inline-size;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    padding: clamp(1.2rem, 1.5cqi, 1.5rem) 0;
+
+    & form {
+      margin-left: auto;
+      margin-right: clamp(1.5rem, 2cqi, 2rem);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: clamp(2.4rem, 3.5cqi, 3.5rem);
+
+    & a {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &[data-active="dashboard"] {
+        & img + img {
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &[data-active="library"] {
+        & img + img {
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &[data-active="bookmarks"] {
+        & img + img {
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &[data-active="profile"] {
+        & img + img {
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+
+    & img + img {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  & > &__nav {
+    position: fixed;
+    top: calc(100cqh - (2.1rem + (clamp(1.5rem, 1.7cqi, 1.7rem) * 2)));
+    padding: clamp(1.5rem, 1.7cqi, 1.7rem) clamp(3.9rem, 4.2cqi, 4.2rem);
+    width: 100cqw;
+    justify-content: center;
+    background-color: $white-color;
+    border-radius: 2.5rem 2.5rem 0 0;
+  }
+
+  & > form {
+    display: none;
+  }
+}

@@ -1,0 +1,68 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.r-login {
+  width: 100%;
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $white-color;
+
+  & article {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    flex: 1;
+
+    & > * {
+      max-width: 55.4rem;
+      width: 90%;
+    }
+  }
+
+  & figure {
+    flex: 1;
+
+    @include max(1000) {
+      display: none;
+    }
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+      max-height: 100cqh;
+      height: 100cqh;
+    }
+  }
+
+  & picture {
+    margin-bottom: clamp(3.5rem, 5cqi, 5rem);
+    width: max-content;
+  }
+
+  & h2 {
+    @include _2-4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  & p {
+    @include _1-4rem;
+    color: $color-neutral;
+
+    &:last-of-type {
+      margin-bottom: clamp(2rem, 2.4cqi, 2.4rem);
+    }
+
+    & a {
+      color: $primary-color-light;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        text-decoration: underline;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}

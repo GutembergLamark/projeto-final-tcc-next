@@ -1,0 +1,42 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.categories {
+  container-type: inline-size;
+  margin-top: clamp(2.5rem, 3cqi, 3rem);
+  background-color: $white-color;
+  border-radius: 1.5rem;
+
+  & h2 {
+    @include _1-6rem($align: left);
+    padding: clamp(1.5rem, 2cqi, 2rem);
+    border-bottom: 1px solid $gray-color-100;
+    color: $blue-color;
+  }
+
+  &__list {
+    padding: clamp(1.5rem, 2cqi, 2rem);
+    display: flex;
+    gap: clamp(1.2rem, 1.5cqi, 1.5rem);
+    overflow-x: auto;
+
+    & figure {
+      background-color: $secondary-color-light;
+      min-width: 9.5rem;
+      min-height: 9.5rem;
+      width: 9.5rem;
+      height: 9.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+    }
+
+    & p {
+      @include _1-2rem;
+      color: $blue-color;
+    }
+  }
+}

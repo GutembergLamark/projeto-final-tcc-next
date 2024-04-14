@@ -1,0 +1,24 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+
+.input {
+  width: 100%;
+  border: none;
+
+  & input {
+    width: 100%;
+    border-radius: 1.5rem;
+    background-color: $gray-color-100;
+    padding: clamp(1rem, 1.2cqi, 1.2rem) clamp(1.4rem, 1.6cqi, 1.6rem);
+
+    &,
+    &::placeholder {
+      @include _1-4rem(
+        $height: clamp(1.7rem, 2cqi, 2rem),
+        $spacing: -0.2px,
+        $align: left
+      );
+      color: $color-neutral;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+export * as search from "@/assets/svg/search.svg";
+export * as dashboard from "@/assets/svg/dashboard.svg";
+export * as dashboard_yellow from "@/assets/svg/dashboard-yellow.svg";
+export * as book from "@/assets/svg/book.svg";
+export * as book_yellow from "@/assets/svg/book-yellow.svg";
+export * as bookmark from "@/assets/svg/bookmark.svg";
+export * as bookmark_yellow from "@/assets/svg/bookmark-yellow.svg";
+export * as profile from "@/assets/svg/profile.svg";
+export * as profile_yellow from "@/assets/svg/profile-yellow.svg";
+export * as category from "@/assets/svg/category.svg";

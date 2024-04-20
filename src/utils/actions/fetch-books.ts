@@ -1,6 +1,6 @@
 "use server";
 
-export async function getBooks() {
+export async function getBooks<T>(): Promise<T[]> {
   return [
     {
       id: "403fa2a1-da66-4964-b5d7-e52169488fba",
@@ -82,5 +82,5 @@ export async function getBooks() {
       pages: 120,
       available: false,
     },
-  ];
+  ] as T[];
 }

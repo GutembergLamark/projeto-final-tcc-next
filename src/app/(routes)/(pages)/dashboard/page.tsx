@@ -1,5 +1,6 @@
 import { Categories, ListingBooks } from "@/sections/modules";
 import { MotionMain } from "@/utils/libs/motion";
+import "@/assets/sass/pages/dashboard.scss";
 
 export default async function Page() {
   return (

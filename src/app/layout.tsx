@@ -8,10 +8,9 @@ import "@/assets/sass/main.scss";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Library",
-    // REMOVER FALSE QUANDO ESTIVER EM PROD. (ISSO BLOQUEIA INDEXAÇÃO)
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     //
     alternates: {
@@ -43,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${inter.variable} ${dmSans.variable}`}>
-        <AnimatePresence initial={false}>{children}</AnimatePresence>
+        <AnimatePresence initial={false}>
+          {children}
+        </AnimatePresence>
       </body>
     </html>
   );

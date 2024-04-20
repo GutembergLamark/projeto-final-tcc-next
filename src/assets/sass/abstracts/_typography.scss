@@ -55,3 +55,18 @@
   font-size: clamp(1rem, 1.2cqi, 1.2rem);
   letter-spacing: $spacing;
 }
+
+@mixin _1-1rem(
+  $family: var(--font-dm-sans),
+  $weight: 400,
+  $height: clamp(1.3rem, 1.6cqi, 1.6rem),
+  $align: center,
+  $spacing: -0.4px
+) {
+  font-family: $family;
+  font-weight: $weight;
+  line-height: $height;
+  text-align: $align;
+  font-size: clamp(1rem, 1.1cqi, 1.1rem);
+  letter-spacing: $spacing;
+}

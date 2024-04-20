@@ -1,0 +1,75 @@
+@import "@/assets/sass/abstracts/_typography";
+@import "@/assets/sass/abstracts/_variables";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  container-type: inline-size;
+  cursor: pointer;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #00000042;
+  border: none;
+
+  &__wrapper {
+    background-color: $white-color;
+    position: relative;
+    border-radius: 2rem;
+    border: 2px solid $primary-color;
+    display: flex;
+    overflow: hidden;
+    overflow: auto;
+    max-height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > button {
+      position: absolute;
+      right: 3.2rem;
+      top: 3.2rem;
+      background-color: $primary-color;
+      color: $white-color;
+      width: clamp(3.7rem, 4.5vw, 4.5rem);
+      height: clamp(3.7rem, 4.5vw, 4.5rem);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $white-color;
+    }
+
+    & h2 {
+      @include _1-6rem($align: left);
+      color: $primary-color;
+      text-transform: uppercase;
+    }
+
+    & > div {
+      padding: 4.8rem 3.2rem;
+      height: max-content;
+    }
+
+    & div:has(> form) {
+      margin-top: clamp(1.2rem, 1.6vw, 1.6rem);
+    }
+
+    & > img {
+      max-width: clamp(30rem, 32rem, 40rem);
+      object-fit: cover;
+
+      @media only screen and (max-width: 800px) {
+        display: none;
+      }
+    }
+  }
+}

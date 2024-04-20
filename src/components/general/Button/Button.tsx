@@ -1,3 +1,5 @@
+"use client";
+
 import { MotionButton } from "@/utils/libs/motion";
 import { ButtonProps } from "./Button.interface";
 import style from "./Button.module.scss";

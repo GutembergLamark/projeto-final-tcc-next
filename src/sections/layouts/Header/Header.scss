@@ -60,17 +60,14 @@
     }
   }
 
-  & > &__nav {
+  & ~ .header__nav {
     position: fixed;
-    top: calc(100cqh - (2.1rem + (clamp(1.5rem, 1.7cqi, 1.7rem) * 2)));
+    top: calc(100cqh - (2.1rem + (clamp(1.5rem, 1.7cqi, 1.7rem) * 2)) + 0.1rem);
     padding: clamp(1.5rem, 1.7cqi, 1.7rem) clamp(3.9rem, 4.2cqi, 4.2rem);
     width: 100cqw;
     justify-content: center;
     background-color: $white-color;
     border-radius: 2.5rem 2.5rem 0 0;
-  }
-
-  & > form {
-    display: none;
+    z-index: 1;
   }
 }

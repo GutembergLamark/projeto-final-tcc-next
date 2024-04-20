@@ -11,6 +11,9 @@ const templateFunctions = {
   input: function () {
     createComponent('formsInputs')
   },
+  modal: function () {
+    createComponent('modals')
+  },
 }
 
 let templateType = templateFunctions[process.argv[2]?.replace('--', '')]
@@ -32,9 +35,25 @@ function findFolder(rootFolder = './src', folderName) {
       const foundFolder = findFolder(filePath, folderName)
       if (foundFolder) {
         return foundFolder
+      } else {
+        const folder = `./src/components`
+        const isFolder = fs.statSync(folder).isDirectory()
+
+        if (isFolder) {
+          const componentFolder = `${folder}/${folderName}`
+          const found = fs.existsSync(componentFolder)
+
+          if (!found) {
+            fs.mkdirSync(componentFolder)
+            fs.writeFileSync(`${componentFolder}/index.ts`, "//<NEXT-BACK-AUTO-IMPORT>//")
+            return componentFolder
+          }
+        }
       }
     }
-  }
+  };
+
+
 
   return null
 }

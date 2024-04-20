@@ -3,7 +3,6 @@ export interface BookCardProps {
   image: string;
   title: string;
   description: string;
-  status: string;
+  status: boolean;
   author: string;
-  saved: boolean;
 }

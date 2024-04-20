@@ -6,6 +6,7 @@ export interface ListingBooksFields {
 export interface ListingBooksBook {
   id: string;
   title: string;
+  image: string;
   author: string;
   published_date: string;
   synopsis: string;

@@ -1,0 +1,7 @@
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.dashboard {
+  @include max(1000) {
+    margin-bottom: clamp(8rem, 10cqw, 10rem);
+  }
+}

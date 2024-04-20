@@ -19,7 +19,7 @@ export default function HeaderNav({ responsivity }: HeaderNavProps) {
 
   return (
     <>
-      <FormSearch cachedBooks={[]} />
+      {responsivity == "desktop" ? <FormSearch cachedBooks={[]} /> : null}
 
       <nav
         className={`header__nav ${
@@ -28,36 +28,26 @@ export default function HeaderNav({ responsivity }: HeaderNavProps) {
       >
         <Link
           href={"/dashboard"}
-          onClick={() => setActive("dashboard")}
           data-active={active == "dashboard" ? active : ""}
         >
           <Icon type="dashboard" />
           <Icon type="dashboard_yellow" />
         </Link>
 
-        <Link
-          href={"/library"}
-          onClick={() => setActive("library")}
-          data-active={active == "library" ? active : ""}
-        >
+        <Link href={"/library"} data-active={active == "library" ? active : ""}>
           <Icon type="book" />
           <Icon type="book_yellow" />
         </Link>
 
         <Link
           href={"/bookmarks"}
-          onClick={() => setActive("bookmarks")}
           data-active={active == "bookmarks" ? active : ""}
         >
           <Icon type="bookmark" />
           <Icon type="bookmark_yellow" />
         </Link>
 
-        <Link
-          href={"/profile"}
-          onClick={() => setActive("profile")}
-          data-active={active == "profile" ? active : ""}
-        >
+        <Link href={"/profile"} data-active={active == "profile" ? active : ""}>
           <Icon type="profile" />
           <Icon type="profile_yellow" />
         </Link>

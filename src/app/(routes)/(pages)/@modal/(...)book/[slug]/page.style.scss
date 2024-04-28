@@ -1,0 +1,98 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.modal {
+  &__head {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: clamp(2.3rem, 2.9cqi, 2.9rem);
+    padding-bottom: clamp(2rem, 2.4cqi, 2.4rem);
+    border-bottom: 1px solid $gray-color-300;
+
+    & figure {
+      border-radius: 0.8rem;
+      overflow: hidden;
+      min-width: 10rem;
+      height: 100%;
+    }
+
+    & article {
+      flex: 1;
+    }
+
+    & h2 {
+      @include _2-2rem($align: left);
+    }
+
+    & h2 + p {
+      @include _1-6rem($align: left, $height: 1.05, $weight: 500);
+      color: $blue-color-light;
+      margin: 0.6rem 0;
+    }
+
+    & p:last-of-type {
+      @include _1-2rem($align: left);
+      margin-bottom: clamp(1.5rem, 2cqi, 2rem);
+    }
+
+    & ul {
+      list-style: none;
+      padding-top: clamp(1.5rem, 2cqi, 2rem);
+      border-top: 1px solid $gray-color-300;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    & li {
+      @include _1-4rem($height: clamp(1.6rem, 2cqi, 2rem), $spacing: -0.2px);
+      background-color: $gray-color-100;
+      padding: 1rem;
+      border-radius: 1.2rem;
+      color: $blue-color;
+    }
+  }
+
+  &__content {
+    height: max-content;
+    margin-top: clamp(2rem, 2.4cqi, 2.4rem);
+
+    & main {
+      background-color: $gray-color-100;
+      padding: clamp(2rem, 2.4cqi, 2.4rem);
+      border-radius: clamp(1.2rem, 1.5cqi, 1.5rem);
+      margin-bottom: clamp(2rem, 2.4cqi, 2.4rem);
+    }
+
+    & h3 {
+      @include _1-4rem(
+        $height: clamp(1.6rem, 2cqi, 2rem),
+        $spacing: -0.2px,
+        $weight: bold,
+        $align: left
+      );
+      color: $blue-color-light;
+      margin-bottom: clamp(1.8rem, 2.2cqi, 2.2rem);
+    }
+
+    & p {
+      @include _1-4rem(
+        $height: clamp(1.6rem, 2cqi, 2rem),
+        $spacing: -0.2px,
+        $align: left
+      );
+      color: $blue-color-light;
+      word-break: break-all;
+    }
+
+    & footer {
+      display: flex;
+
+      & button {
+        margin-left: auto;
+        width: max-content;
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { ListingBooks } from "@/sections/modules";
 import { MotionMain } from "@/utils/libs/motion";
 
 export default async function Page() {
@@ -7,6 +8,11 @@ export default async function Page() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="dashboard"
-    ></MotionMain>
+    >
+      <ListingBooks
+        fields={{ title: "Livros emprestados", cardType: "vertical" }}
+        order={2}
+      />
+    </MotionMain>
   );
 }

@@ -22,7 +22,6 @@ export function FormSearch({ cachedBooks }: FormSearchProps) {
             ?.slice(0, 6) ?? []
         : []
     );
-    console.log(list);
   }, [search]);
 
   return (

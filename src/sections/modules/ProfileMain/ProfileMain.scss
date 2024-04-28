@@ -1,0 +1,57 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.p-main {
+  margin: clamp(3.5rem, 5cqi, 5rem) auto;
+  container-type: inline-size;
+
+  & article {
+    background-color: $white-color;
+    border-radius: 1.5rem;
+
+    & h3 {
+      @include _1-6rem($align: left, $weight: 600);
+      padding: clamp(1.4rem, 1.6cqi, 1.6rem) clamp(1.7rem, 2cqi, 2rem);
+      border-bottom: 1px solid $gray-color-300;
+    }
+  }
+
+  &__options {
+    padding: clamp(1.4rem, 1.6cqi, 1.6rem) clamp(1.7rem, 2cqi, 2rem);
+
+    & button {
+      @include _1-4rem($align: left, $weight: 600);
+      padding: 1.2rem;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $gray-color-300;
+      }
+    }
+
+    & img {
+      &:not(:last-of-type) {
+        width: 2rem;
+        object-fit: cover;
+      }
+
+      &:last-of-type {
+        margin-left: auto;
+      }
+    }
+
+    & p {
+      display: flex;
+      flex-flow: column;
+
+      & span {
+        font-weight: 400;
+      }
+    }
+  }
+}

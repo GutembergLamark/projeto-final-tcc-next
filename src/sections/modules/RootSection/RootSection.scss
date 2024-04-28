@@ -16,9 +16,33 @@
     align-items: center;
     flex: 1;
 
-    & > * {
+    & > *:not(div[class*="notify"], picture) {
       max-width: 55.4rem;
       width: 90%;
+    }
+
+    & > h2 {
+      @include _2-4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    & > p {
+      @include _1-4rem;
+      color: $color-neutral;
+
+      &:last-of-type {
+        margin-bottom: clamp(2rem, 2.4cqi, 2.4rem);
+      }
+
+      & a {
+        color: $primary-color-light;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          text-decoration: underline;
+          transition: all 0.2s ease-in-out;
+        }
+      }
     }
   }
 
@@ -40,29 +64,6 @@
   & picture {
     margin-bottom: clamp(3.5rem, 5cqi, 5rem);
     width: max-content;
-  }
-
-  & h2 {
-    @include _2-4rem;
-    margin-bottom: 0.4rem;
-  }
-
-  & p {
-    @include _1-4rem;
-    color: $color-neutral;
-
-    &:last-of-type {
-      margin-bottom: clamp(2rem, 2.4cqi, 2.4rem);
-    }
-
-    & a {
-      color: $primary-color-light;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        text-decoration: underline;
-        transition: all 0.2s ease-in-out;
-      }
-    }
+    max-width: 55.4rem;
   }
 }

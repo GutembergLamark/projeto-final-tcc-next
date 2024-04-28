@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BookCardProps } from "./BookCard.interface";
 import style from "./BookCard.module.scss";
 import Link from "next/link";
+import { MotionArticle } from "@/utils/libs/motion";
 
 export function BookCard({
   type,
@@ -14,13 +15,17 @@ export function BookCard({
   author,
 }: BookCardProps) {
   return (
-    <article className={style.card}>
+    <MotionArticle
+      initial={{ opacity: 0, y: 20, x: 20 }}
+      animate={{ opacity: 1, y: 0, x: 0 }}
+      className={`${style.card} ${style[`card--${type}`]}`}
+    >
       <Link
         href={`/book/${title
           .toLowerCase()
           .replace(/\s/g, "-")
           .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")}`}
+          .replace(/[\u0300-\u036f]/g, "")}?title=${title}`}
       >
         <figure>
           {image ? (
@@ -30,16 +35,16 @@ export function BookCard({
         </figure>
         <div className={style.card__text}>
           {title ? <h3>{title}</h3> : null}
-          {description ? <p>{description}</p> : null}
+          {type == "horizontal" && description ? <p>{description}</p> : null}
           <p>
             <span style={{ color: status ? "#ef9f27" : "#FF3053" }}>
               {status ? "Disponível" : "Indisponível"}
             </span>
             &bull;
-            <span>{author}</span>
+            <span>{type == "vertical" ? "Ver" : author}</span>
           </p>
         </div>
       </Link>
-    </article>
+    </MotionArticle>
   );
 }

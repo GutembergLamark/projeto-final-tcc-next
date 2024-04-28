@@ -1,3 +1,4 @@
+import { ProfileMain, ProfileTop } from "@/sections/modules";
 import { MotionMain } from "@/utils/libs/motion";
 
 export default async function Page() {
@@ -7,6 +8,9 @@ export default async function Page() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="dashboard"
-    ></MotionMain>
+    >
+      <ProfileTop fields={{}} order={1} />
+      <ProfileMain fields={{}} order={2} />
+    </MotionMain>
   );
 }

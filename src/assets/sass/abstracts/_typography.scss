@@ -11,6 +11,34 @@
   font-size: clamp(2.1rem, 2.4cqi, 2.4rem);
 }
 
+@mixin _2-2rem(
+  $family: var(--font-dm-sans),
+  $weight: bold,
+  $height: clamp(2rem, 2.4cqi, 2.4rem),
+  $align: center,
+  $spacing: -0.28px
+) {
+  font-family: $family;
+  font-weight: $weight;
+  line-height: $height;
+  text-align: $align;
+  font-size: clamp(1.8rem, 2.2cqi, 2.2rem);
+  letter-spacing: $spacing;
+}
+
+@mixin _1-8rem(
+  $family: var(--font-dm-sans),
+  $weight: 600,
+  $height: clamp(2rem, 2.2cqi, 2.2rem),
+  $align: center
+) {
+  font-family: $family;
+  font-weight: $weight;
+  line-height: $height;
+  text-align: $align;
+  font-size: clamp(1.6rem, 1.8cqi, 1.8rem);
+}
+
 @mixin _1-6rem(
   $family: var(--font-dm-sans),
   $weight: bold,

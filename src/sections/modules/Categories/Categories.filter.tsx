@@ -4,7 +4,11 @@ import { Icon } from "@/components/general";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
-export default function CategoriesFilter() {
+export default function CategoriesFilter({
+  categories,
+}: {
+  categories: string[];
+}) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [category, setCategory] = useState<string>(
@@ -44,30 +48,21 @@ export default function CategoriesFilter() {
         </figure>
         <p>Todas</p>
       </button>
-      <button onClick={() => setCategory("Ficção")}>
-        <figure>
-          <Icon type="category" />
-        </figure>
-        <p>Ficção</p>
-      </button>
-      <button onClick={() => setCategory("Romance")}>
-        <figure>
-          <Icon type="category" />
-        </figure>
-        <p>Romance</p>
-      </button>
-      <button onClick={() => setCategory("Biografia")}>
-        <figure>
-          <Icon type="category" />
-        </figure>
-        <p>Biografia</p>
-      </button>
-      <button onClick={() => setCategory("Literatura infantil")}>
-        <figure>
-          <Icon type="category" />
-        </figure>
-        <p>Literatura infantil</p>
-      </button>
+      {categories?.length ?? 0 > 0
+        ? categories.map((category, i) => {
+            return (
+              <button
+                key={`category-item-${category}-${i}`}
+                onClick={() => setCategory(category)}
+              >
+                <figure>
+                  <Icon type="category" />
+                </figure>
+                <p>{category}</p>
+              </button>
+            );
+          })
+        : null}
     </div>
   );
 }

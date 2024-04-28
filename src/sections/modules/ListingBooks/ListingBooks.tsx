@@ -1,6 +1,7 @@
 import { getBooks } from "@/utils/actions";
 import {
   ListingBooksBook,
+  ListingBooksFetch,
   ListingBooksFields,
 } from "./ListingBooks.interfaces";
 import "./ListingBooks.scss";
@@ -11,13 +12,13 @@ const ListingBooks = async ({
   order,
 }: /* @ts-expect-error Async Server Component */
 ModuleProps<ListingBooksFields>): React.ReactElement => {
-  const data = await getBooks<ListingBooksBook>();
+  const { books } = await getBooks<ListingBooksFetch>();
 
   return (
     <section className="l-books wrapper">
       <h2>{fields?.title}</h2>
 
-      <ListingBooksFilter books={data} />
+      <ListingBooksFilter books={books} cardType={fields!.cardType} />
     </section>
   );
 };

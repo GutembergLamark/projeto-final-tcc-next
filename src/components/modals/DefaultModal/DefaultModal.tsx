@@ -2,26 +2,14 @@
 import style from "./DefaultModal.module.scss";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import {
   AnimatePresence,
   MotionArticle,
   MotionButton,
   MotionDialog,
-  MotionDiv,
 } from "@/utils/libs/motion";
-import { DefaultModalProps } from "./DefaultModal.interfaces";
-import { Button } from "@/components/general";
 
-export function DefaultModal({
-  image,
-  title,
-  author,
-  status,
-  pages,
-  synopses,
-  published_date,
-}: DefaultModalProps) {
+export function DefaultModal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [open, setOpen] = useState(true);
@@ -32,7 +20,7 @@ export function DefaultModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          key={title}
+          key={"Modal"}
           className={style["modal"]}
           open
         >
@@ -51,44 +39,7 @@ export function DefaultModal({
             >
               &times;
             </MotionButton>
-            <MotionDiv className="modal__head wrapper">
-              <figure>
-                {image ? (
-                  <Image src={image} width={113} height={170} alt={title} />
-                ) : null}
-              </figure>
-              <article>
-                {title ? <h2>{title}</h2> : null}
-                {author ? <p>{author}</p> : null}
-                {
-                  <p style={{ color: status ? "#ef9f27" : "#FF3053" }}>
-                    {status ? "Disponível" : "Indisponível"}
-                  </p>
-                }
-                <ul>
-                  {pages ? <li>{pages} Páginas</li> : null}
-                  {published_date ? (
-                    <li>Publicado em {published_date}</li>
-                  ) : null}
-                </ul>
-              </article>
-            </MotionDiv>
-            <MotionDiv className="modal__content">
-              <main>
-                <h3>Sinopse:</h3>
-
-                {synopses}
-              </main>
-              <footer>
-                <Button
-                  type="button"
-                  styleType="default"
-                  buttonProps={{ type: "button" }}
-                >
-                  Pegar emprestado
-                </Button>
-              </footer>
-            </MotionDiv>
+            {children}
           </MotionArticle>
         </MotionDialog>
       ) : (

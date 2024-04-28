@@ -1,0 +1,30 @@
+@import "@/assets/sass/abstracts/_typography.scss";
+@import "@/assets/sass/abstracts/_variables.scss";
+@import "@/assets/sass/abstracts/_utilities.scss";
+
+.notify {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: clamp(1.5rem, 2cqi, 2rem);
+  border-radius: 0.8rem;
+  color: $white-color;
+  width: max-content;
+  min-width: 30rem;
+
+  & h2 {
+    @include _1-8rem($align: left);
+  }
+
+  & p {
+    @include _1-4rem($align: left, $weight: 400);
+  }
+
+  &--success {
+    background-color: $green-color;
+  }
+
+  &--error {
+    background-color: $red-color;
+  }
+}

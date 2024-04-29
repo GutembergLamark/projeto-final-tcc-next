@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Button } from "@/components/general";
 import "./page.style.scss";
 
-export default function ContentModal() {
+export default function ContentModal({ userEmail }: { userEmail: string }) {
   const searchParams = useSearchParams();
   const [book, setBook] = useState<Book>({} as Book);
 
@@ -60,15 +60,17 @@ export default function ContentModal() {
 
           <p>{book?.synopsis}</p>
         </main>
-        <footer>
-          <Button
-            type="button"
-            styleType="default"
-            buttonProps={{ type: "button" }}
-          >
-            Pegar emprestado
-          </Button>
-        </footer>
+        {userEmail !== "admin@email.com" && (
+          <footer>
+            <Button
+              type="button"
+              styleType="default"
+              buttonProps={{ type: "button" }}
+            >
+              Pegar emprestado
+            </Button>
+          </footer>
+        )}
       </MotionDiv>
     </>
   );

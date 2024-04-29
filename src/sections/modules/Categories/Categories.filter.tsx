@@ -48,8 +48,8 @@ export default function CategoriesFilter({
         </figure>
         <p>Todas</p>
       </button>
-      {categories?.length ?? 0 > 0
-        ? categories.map((category, i) => {
+      {[...new Set(categories)]?.length ?? 0 > 0
+        ? [...new Set(categories)].map((category, i) => {
             return (
               <button
                 key={`category-item-${category}-${i}`}

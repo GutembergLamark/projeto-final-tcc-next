@@ -1,5 +1,5 @@
 export interface FormSearchProps {
-  cachedBooks: Array<Book>;
+  cachedBooks: Array<CachedBook>;
 }
 
 export interface Book {
@@ -10,4 +10,9 @@ export interface Book {
   synopsis: string;
   pages: number;
   available: boolean;
+}
+
+export interface CachedBook {
+  title: string;
+  url: string;
 }

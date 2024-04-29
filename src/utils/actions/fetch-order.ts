@@ -2,17 +2,16 @@
 
 import { redirect } from "next/navigation";
 
-export async function register(prevState: any, data: FormData) {
-  const response = await fetch(`${process.env.API_HOST}/users`, {
+export async function createOrder(prevState: any, data: FormData) {
+  const response = await fetch(`${process.env.API_HOST}/orders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username: data.get("username"),
-      email: data.get("email"),
-      password: data.get("password"),
-      cpf: data.get("cpf"),
+      days: data.get("days"),
+      userId: data.get("user"),
+      bookId: data.get("book"),
     }),
   })
     .then((res) => res.json())
@@ -21,33 +20,29 @@ export async function register(prevState: any, data: FormData) {
         return {
           title: "Error",
           description: res.error,
-          user: {},
         };
       }
 
       if (res.status === "error") {
         return {
           title: "Error",
-          description: res.error,
-          user: {},
+          description: res.message,
         };
       }
 
       return {
         title: "Success",
-        description: "Usuário criado com sucesso",
-        user: res.user,
+        description: "Livro Solicitado",
       };
     })
     .catch((error) => {
       return {
         title: "Error",
         description: "Tente novamente mais tarde",
-        user: {},
       };
     });
 
-  if (response.user.id) redirect("/");
+  if (response.title === "Success") redirect("/dashboard");
 
   return response;
 }

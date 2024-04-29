@@ -5,6 +5,8 @@
 .header {
   background-color: $white-color;
   container-type: inline-size;
+  position: relative;
+  z-index: 1;
 
   &__wrapper {
     display: flex;

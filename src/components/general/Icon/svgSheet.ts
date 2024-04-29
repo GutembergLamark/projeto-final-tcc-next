@@ -8,3 +8,5 @@ export * as bookmark_yellow from "@/assets/svg/bookmark-yellow.svg";
 export * as profile from "@/assets/svg/profile.svg";
 export * as profile_yellow from "@/assets/svg/profile-yellow.svg";
 export * as category from "@/assets/svg/category.svg";
+export * as camera from "@/assets/svg/camera.svg";
+export * as add from "@/assets/svg/add-circle.svg";

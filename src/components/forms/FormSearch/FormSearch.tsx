@@ -3,13 +3,15 @@
 import { Icon } from "@/components/general";
 import style from "./FormSearch.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Book, FormSearchProps } from "./FormSearch.interfaces";
+import { Book, CachedBook, FormSearchProps } from "./FormSearch.interfaces";
 import { useRouter, useSearchParams } from "next/navigation";
+import parse from "html-react-parser";
+import Link from "next/link";
 
 export function FormSearch({ cachedBooks }: FormSearchProps) {
   const [active, setActive] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
-  const [list, setList] = useState<Book[]>([] as Book[]);
+  const [list, setList] = useState<CachedBook[]>([] as CachedBook[]);
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -48,6 +50,31 @@ export function FormSearch({ cachedBooks }: FormSearchProps) {
           onChange={(e) => setSearch(e.target.value)}
         />
       </fieldset>
+
+      {list && list?.length > 0 ? (
+        <div className={style["search__results"]}>
+          {list?.length > 0 && list
+            ? list?.map((item) => (
+                <Link
+                  href={item?.url ?? "/"}
+                  key={item?.title}
+                  onClick={() => {
+                    setSearch("");
+                  }}
+                >
+                  {search != ""
+                    ? parse(
+                        item?.title?.replace(
+                          new RegExp(search, "gi"),
+                          "<strong>$&</strong>"
+                        ) ?? ""
+                      )
+                    : item?.title}
+                </Link>
+              ))
+            : null}
+        </div>
+      ) : null}
     </form>
   );
 }

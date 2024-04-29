@@ -3,6 +3,8 @@
 @import "@/assets/sass/abstracts/_utilities.scss";
 
 .search {
+  position: relative;
+
   & fieldset {
     border: none;
     background-color: $gray-color-100;
@@ -36,6 +38,28 @@
       &,
       &::placeholder {
         line-height: 2.5rem;
+      }
+    }
+  }
+
+  &__results {
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+    background-color: $gray-color-100;
+    padding: clamp(1.1rem, 1.3cqi, 1.3rem);
+    border-radius: 0.8rem;
+
+    & a {
+      @include _1-4rem($align: left);
+
+      &:not(:last-of-type) {
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid $gray-color-200;
+        margin-bottom: 0.5rem;
       }
     }
   }

@@ -1,18 +1,24 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function register(prevState: any, data: FormData) {
-  const response = await fetch(`${process.env.API_HOST}/users`, {
+export async function createBook(prevState: any, data: FormData) {
+  const response = await fetch(`${process.env.API_HOST}/books`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + cookies().get("session")?.value,
     },
     body: JSON.stringify({
-      username: data.get("username"),
-      email: data.get("email"),
-      password: data.get("password"),
-      cpf: data.get("cpf"),
+      title: data.get("title"),
+      category: data.get("category"),
+      author: data.get("author"),
+      published_date: data.get("published_date"),
+      synopsis: data.get("synopsis"),
+      image: data.get("image"),
+      pages: data.get("pages"),
     }),
   })
     .then((res) => res.json())
@@ -21,7 +27,6 @@ export async function register(prevState: any, data: FormData) {
         return {
           title: "Error",
           description: res.error,
-          user: {},
         };
       }
 
@@ -29,25 +34,24 @@ export async function register(prevState: any, data: FormData) {
         return {
           title: "Error",
           description: res.error,
-          user: {},
         };
       }
 
+      revalidateTag("book");
+
       return {
         title: "Success",
-        description: "Usuário criado com sucesso",
-        user: res.user,
+        description: "Livro criado com sucesso",
       };
     })
     .catch((error) => {
       return {
         title: "Error",
         description: "Tente novamente mais tarde",
-        user: {},
       };
     });
 
-  if (response.user.id) redirect("/");
+  if (response.title === "Success") redirect("/dashboard");
 
   return response;
 }

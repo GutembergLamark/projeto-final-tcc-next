@@ -11,6 +11,7 @@
   color: $white-color;
   width: max-content;
   min-width: 30rem;
+  max-width: 40rem;
 
   & h2 {
     @include _1-8rem($align: left);

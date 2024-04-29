@@ -7,7 +7,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HeaderNavProps } from "./Header.interfaces";
 
-export default function HeaderNav({ responsivity }: HeaderNavProps) {
+export default function HeaderNav({
+  responsivity,
+  suggestion,
+  payload,
+}: HeaderNavProps) {
   const pathname = usePathname()?.replace("/", "");
   const [active, setActive] = useState<
     "dashboard" | "library" | "bookmarks" | "profile"
@@ -19,7 +23,9 @@ export default function HeaderNav({ responsivity }: HeaderNavProps) {
 
   return (
     <>
-      {responsivity == "desktop" ? <FormSearch cachedBooks={[]} /> : null}
+      {responsivity == "desktop" ? (
+        <FormSearch cachedBooks={suggestion} />
+      ) : null}
 
       <nav
         className={`header__nav ${
@@ -39,13 +45,15 @@ export default function HeaderNav({ responsivity }: HeaderNavProps) {
           <Icon type="book_yellow" />
         </Link>
 
-        <Link
-          href={"/bookmarks"}
-          data-active={active == "bookmarks" ? active : ""}
-        >
-          <Icon type="bookmark" />
-          <Icon type="bookmark_yellow" />
-        </Link>
+        {payload?.email !== "admin@email.com" && (
+          <Link
+            href={"/bookmarks"}
+            data-active={active == "bookmarks" ? active : ""}
+          >
+            <Icon type="bookmark" />
+            <Icon type="bookmark_yellow" />
+          </Link>
+        )}
 
         <Link href={"/profile"} data-active={active == "profile" ? active : ""}>
           <Icon type="profile" />

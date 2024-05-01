@@ -1,5 +1,6 @@
-import { getBooks } from "@/utils/actions";
+import { getBooks, getListOrders } from "@/utils/actions";
 import {
+  ListingBooksOrders,
   ListingBooksBook,
   ListingBooksFetch,
   ListingBooksFields,
@@ -18,12 +19,22 @@ const ListingBooks = async ({
 ModuleProps<ListingBooksFields>): React.ReactElement => {
   const payload = await decrypt(cookies().get("session")?.value);
   const { books } = await getBooks<ListingBooksFetch>();
+  const { orders } = await getListOrders<ListingBooksOrders>(
+    payload?.sub ?? ""
+  );
 
   return (
     <section className="l-books wrapper">
       <h2>{fields?.title}</h2>
 
-      <ListingBooksFilter books={books} cardType={fields!.cardType} />
+      <ListingBooksFilter
+        books={
+          fields?.cardType === "vertical"
+            ? orders?.map((order) => order?.book)
+            : books
+        }
+        cardType={fields!.cardType}
+      />
 
       {payload?.email === "admin@email.com" && (
         <Link href={"/book/create"} className="l-books__add">

@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { createSession } from "../libs/jose";
+import { createSession } from "../../libs/jose";
 
 export async function login(prevState: any, data: FormData) {
   const response = await fetch(`${process.env.API_HOST}/login`, {

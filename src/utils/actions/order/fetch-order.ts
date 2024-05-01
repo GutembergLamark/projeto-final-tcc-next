@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function createOrder(prevState: any, data: FormData) {
@@ -7,6 +9,7 @@ export async function createOrder(prevState: any, data: FormData) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer " + cookies().get("session")?.value,
     },
     body: JSON.stringify({
       days: data.get("days"),
@@ -29,6 +32,8 @@ export async function createOrder(prevState: any, data: FormData) {
           description: res.message,
         };
       }
+
+      revalidateTag("book");
 
       return {
         title: "Success",

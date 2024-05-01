@@ -10,7 +10,10 @@ export default async function Page() {
       className="dashboard"
     >
       <ListingBooks
-        fields={{ title: "Livros emprestados", cardType: "vertical" }}
+        fields={{
+          title: "Livros emprestados",
+          cardType: "vertical",
+        }}
         order={2}
       />
     </MotionMain>

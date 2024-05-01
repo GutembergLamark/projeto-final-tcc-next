@@ -15,7 +15,7 @@ export default async function BookPage({
 
   return (
     <DefaultModal>
-      <ContentModal userEmail={(payload?.email as string) ?? ""} />
+      <ContentModal userToken={payload} />
     </DefaultModal>
   );
 }

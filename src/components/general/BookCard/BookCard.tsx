@@ -25,7 +25,9 @@ export function BookCard({
           .toLowerCase()
           .replace(/\s/g, "-")
           .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")}?title=${title}`}
+          .replace(/[\u0300-\u036f]/g, "")}?title=${title}${
+          type === "vertical" ? "&bookmark=true" : ""
+        }`}
       >
         <figure>
           {image ? (
@@ -37,8 +39,20 @@ export function BookCard({
           {title ? <h3>{title}</h3> : null}
           {type == "horizontal" && description ? <p>{description}</p> : null}
           <p>
-            <span style={{ color: status ? "#ef9f27" : "#FF3053" }}>
-              {status ? "Disponível" : "Indisponível"}
+            <span
+              style={{
+                color: status
+                  ? "#ef9f27"
+                  : type === "vertical"
+                  ? "#006316"
+                  : "#FF3053",
+              }}
+            >
+              {status
+                ? "Disponível"
+                : type === "vertical"
+                ? "Salvo"
+                : "Indisponível"}
             </span>
             &bull;
             <span>{type == "vertical" ? "Ver" : author}</span>

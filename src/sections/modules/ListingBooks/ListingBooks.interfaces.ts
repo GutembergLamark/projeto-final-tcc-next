@@ -7,6 +7,12 @@ export interface ListingBooksFetch {
   books: [ListingBooksBook];
 }
 
+export interface ListingBooksOrders {
+  orders: [
+    { id: string; days: number; created_at: string; book: ListingBooksBook }
+  ];
+}
+
 export interface ListingBooksBook {
   id: string;
   title: string;

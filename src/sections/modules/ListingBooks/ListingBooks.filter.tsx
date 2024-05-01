@@ -4,6 +4,7 @@ import { BookCard } from "@/components/general";
 import { ListingBooksBook } from "./ListingBooks.interfaces";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { revalidateTag } from "next/cache";
 
 export default function ListingBooksFilter({
   books,

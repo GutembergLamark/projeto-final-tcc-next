@@ -10,3 +10,4 @@ export * as profile_yellow from "@/assets/svg/profile-yellow.svg";
 export * as category from "@/assets/svg/category.svg";
 export * as camera from "@/assets/svg/camera.svg";
 export * as add from "@/assets/svg/add-circle.svg";
+export * as edit from "@/assets/svg/edit.svg";

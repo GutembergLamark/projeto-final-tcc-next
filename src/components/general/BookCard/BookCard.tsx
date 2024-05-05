@@ -5,6 +5,7 @@ import { BookCardProps } from "./BookCard.interface";
 import style from "./BookCard.module.scss";
 import Link from "next/link";
 import { MotionArticle } from "@/utils/libs/motion";
+import { Icon } from "../Icon/Icon";
 
 export function BookCard({
   type,
@@ -13,6 +14,7 @@ export function BookCard({
   description,
   status,
   author,
+  edit,
 }: BookCardProps) {
   return (
     <MotionArticle
@@ -20,6 +22,15 @@ export function BookCard({
       animate={{ opacity: 1, y: 0, x: 0 }}
       className={`${style.card} ${style[`card--${type}`]}`}
     >
+      {edit && (
+        <Link
+          className={style.card__edit}
+          href={`/book/update?title=${title}`}
+          aria-label="Editar Livro"
+        >
+          <Icon type="edit" />
+        </Link>
+      )}
       <Link
         href={`/book/${title
           .toLowerCase()

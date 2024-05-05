@@ -8,6 +8,7 @@
   max-width: 41.5rem;
   min-width: clamp(30rem, 40cqi, 40rem);
   padding: clamp(1.4rem, 1.6cqi, 1.6rem) clamp(1.8rem, 2cqi, 2rem);
+  position: relative;
 
   & img {
     position: relative;
@@ -50,6 +51,7 @@
         $align: left
       );
       color: $blue-color;
+      max-width: 90%;
     }
 
     & p {
@@ -120,6 +122,19 @@
 
     & p {
       margin-top: auto;
+    }
+  }
+
+  &__edit:first-of-type {
+    position: absolute;
+    top: clamp(1.4rem, 1.6cqi, 1.6rem);
+    right: clamp(1.8rem, 2cqi, 2rem);
+    z-index: 10;
+    height: auto;
+
+    & img {
+      width: auto;
+      height: auto;
     }
   }
 }

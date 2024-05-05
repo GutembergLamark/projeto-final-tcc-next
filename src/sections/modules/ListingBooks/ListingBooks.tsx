@@ -28,12 +28,9 @@ ModuleProps<ListingBooksFields>): React.ReactElement => {
       <h2>{fields?.title}</h2>
 
       <ListingBooksFilter
-        books={
-          fields?.cardType === "vertical"
-            ? orders?.map((order) => order?.book)
-            : books
-        }
+        books={books}
         cardType={fields!.cardType}
+        token={payload}
       />
 
       {payload?.email === "admin@email.com" && (

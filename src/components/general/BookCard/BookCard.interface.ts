@@ -5,4 +5,5 @@ export interface BookCardProps {
   description: string;
   status: boolean;
   author: string;
+  edit?: boolean;
 }

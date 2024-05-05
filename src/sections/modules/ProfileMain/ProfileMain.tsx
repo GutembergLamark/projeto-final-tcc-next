@@ -4,6 +4,10 @@ import { decrypt } from "@/utils/libs/jose";
 import { ProfileMainFetch } from "./ProfileMain.interfaces";
 import Options from "./ProfileMain.options";
 import "./ProfileMain.scss";
+import Image from "next/image";
+import profile from "@/assets/img/profile.png";
+import arrow from "@/assets/img/arrow-right.png";
+import Link from "next/link";
 
 const ProfileMain = async ({
   fields,
@@ -15,6 +19,32 @@ ModuleProps): React.ReactElement => {
 
   return (
     <section className="p-main wrapper">
+      {user?.username !== "admin" ? (
+        <article>
+          <h3>Gerais</h3>
+
+          <div className="p-main__options">
+            <Link href={"/user"}>
+              <Image
+                src={profile?.src}
+                width={profile?.width}
+                height={profile?.height}
+                alt="Excluir Conta"
+              />
+              <p>
+                Informações
+                <span>Edite informações da sua conta</span>
+              </p>
+              <Image
+                src={arrow?.src}
+                width={arrow?.width}
+                height={arrow?.height}
+                alt="Seta"
+              />
+            </Link>
+          </div>
+        </article>
+      ) : null}
       <article>
         <h3>Mais</h3>
 

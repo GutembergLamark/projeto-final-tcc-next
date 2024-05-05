@@ -15,12 +15,17 @@
       padding: clamp(1.4rem, 1.6cqi, 1.6rem) clamp(1.7rem, 2cqi, 2rem);
       border-bottom: 1px solid $gray-color-300;
     }
+
+    &:not(:last-of-type) {
+      margin-bottom: clamp(1.4rem, 1.6cqi, 1.6rem);
+    }
   }
 
   &__options {
     padding: clamp(1.4rem, 1.6cqi, 1.6rem) clamp(1.7rem, 2cqi, 2rem);
 
-    & button {
+    & button,
+    & a {
       @include _1-4rem($align: left, $weight: 600);
       padding: 1.2rem;
       width: 100%;

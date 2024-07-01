@@ -44,7 +44,7 @@ export default function ContentModal({ userToken }: { userToken: JWT | null }) {
 
   return (
     <>
-      <form action={formAction}>
+      <form action={formAction} data-cy="modal">
         <input type="hidden" value={book?.id} name="book" />
         <input type="hidden" value={userToken?.sub} name="user" />
         <input type="hidden" value={3} name="days" />

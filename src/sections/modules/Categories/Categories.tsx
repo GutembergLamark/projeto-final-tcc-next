@@ -1,4 +1,3 @@
-import { Icon } from "@/components/general";
 import "./Categories.scss";
 import CategoriesFilter from "./Categories.filter";
 import { getBooks } from "@/utils/actions";

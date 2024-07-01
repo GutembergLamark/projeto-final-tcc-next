@@ -17,11 +17,26 @@ export function FormRegister({}) {
 
   return (
     <>
-      <form className={style.form} action={formAction}>
-        <Input type="text" placeholder="Seu nome" name="username" />
-        <Input type="email" placeholder="Seu email" name="email" />
-        <Input type="text" placeholder="CPF" name="cpf" />
-        <Input type="password" placeholder="Senha" name="password" />
+      <form className={style.form} action={formAction} data-cy="register">
+        <Input
+          type="text"
+          placeholder="Seu nome"
+          name="username"
+          disabled={false}
+        />
+        <Input
+          type="email"
+          placeholder="Seu email"
+          name="email"
+          disabled={false}
+        />
+        <Input type="text" placeholder="CPF" name="cpf" disabled={false} />
+        <Input
+          type="password"
+          placeholder="Senha"
+          name="password"
+          disabled={false}
+        />
         <Button
           type="button"
           label="Criar"

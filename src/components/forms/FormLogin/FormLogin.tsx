@@ -17,7 +17,7 @@ export function FormLogin({}) {
 
   return (
     <>
-      <form className={style.form} action={formAction}>
+      <form className={style.form} action={formAction} data-cy="login">
         <Input type="email" placeholder="Email" name="email" />
         <Input type="password" placeholder="Senha" name="password" />
         <Button

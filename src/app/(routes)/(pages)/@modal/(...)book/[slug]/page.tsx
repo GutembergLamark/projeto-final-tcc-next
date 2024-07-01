@@ -14,7 +14,7 @@ export default async function BookPage({
   );
 
   return (
-    <DefaultModal>
+    <DefaultModal >
       <ContentModal userToken={payload} />
     </DefaultModal>
   );

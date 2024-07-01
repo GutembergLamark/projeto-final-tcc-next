@@ -39,6 +39,7 @@ export function BookCard({
           .replace(/[\u0300-\u036f]/g, "")}?title=${title}${
           type === "vertical" ? "&bookmark=true" : ""
         }`}
+        data-cy="card-button"
       >
         <figure>
           {image ? (
